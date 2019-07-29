@@ -24,4 +24,41 @@ INSERT INTO `people` (`name`, `pet`, `anniversary`) VALUES('Sam Rogers', 'Shredd
 UPDATE `people` SET `name`='Samuel Rogers', `pet`='Maxwell Binkington The Third' WHERE `id` = 9;    --UPDATE and SET multiple fields name to that value for the id=9 row.
 UPDATE `people` SET `name`='Samuel Rogers', `pet`='Maxwell Binkington The Third' WHERE `id` > 9;    --update all with that values in those fields where id is bigger than 9.
 
-UPDATE `people` SET `email` = REPLACE(`email`, '@gnail.com', '@gmail.com') WHERE `email` LIKE '%@gnail.com%';    --REPLACE(param1, param2, param3) : in param1 field's  param2 value-> change to param3 value. WHERE the `email` field's value look like that. %@gnail.com%
+UPDATE `people` SET `email` = REPLACE(`email`, '@gnail.com', '@gmail.com') WHERE `email` LIKE '%@gnail.com%';    --REPLACE(param1, param2, param3) : in param1 field's  param2 value-> change to param3 value. WHERE the `email` field's value look like that. %@gnail.com% , wildcard - % here represents 0 or more characters.
+
+DELETE FROM `people` WHERE `id` > 9;-- DELETE : delete it from row. many conditions can come behind WHERE.
+
+SELECT `people`.`people_name`, `pets`.`pet_name`
+FROM `people` LEFT JOIN ON `people`.`pet_id` = `pets`.`id`
+WHERE `people`.`id`> 2;
+-- people_name from people table, pet_name from pets table, choose people table, left join it onto
+JOIN : selecting data from multiple tables in one query
+ -By doing so, we could reduce duplicate data which is called "normalization"
+ -database is for manipulate or retrieve data from.
+ -INNER JOIN : duplicate part in van diagram. Returns just matching data from sides.
+    SELECT * FROM `adults`   -- SELECT all from adults table
+    INNER JOIN `children`    -- it will create a new table with all the fields from adults and children table together that has common value from both tables.
+    ON `adults`.`child_id` = `children`.`id`    -- that common values it will look for is child_id from adults table and id from children table.
+
+-LEFT JOIN : JOIN ALL the data from left table and any data from right table that matches.
+    SELECT * FROM `adults`  -- it matters which table you choose here. adults is going to be the left table here. (first table mentioned is left table)
+    LEFT JOIN `children`   -- everything from adults table and what matches from children table
+    ON `adults`.`child_id` = `children`.`id`   -- that "what matches" condition is if children table's id is the same as adults table's child_id
+
+-RIGHT JOIN : Same is LEFT JOIN but backwards.
+    Just use LEFT JOIN.
+
+-you can make Linking Table. and JOIN LEFT table and RIGHT table to the Linking Table.
+    SELECT * FROM `adults`
+    LEFT JOIN `link`
+    ON `adults`.`id` = `link`.`adultID`    -- first join adults table into link. and then
+    LEFT JOIN `children`
+    ON `link`.`childID` = `children`.`id`;      -- you join children table into link table.
+
+ `
+
+
+
+
+
+
