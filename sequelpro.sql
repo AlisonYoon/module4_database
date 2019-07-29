@@ -15,3 +15,8 @@ SELECT DISTINCT `id`, `name` FROM `people` WHERE `pet`='Pikachu' ORDER BY `id` D
 
 SELECT `name`, `pet` FROM `people` GROUP BY `pet`;     --GROUP BY : Rolls through the table, selects unique entries and ignores duplicated entries
 SELECT `name`, `pet` FROM `people` GROUP BY `pet` HAVING `pet` = 'Pikachu';    --HAVING : filters the result of GROUP BY
+
+SELECT `name` AS 'petOwnerName', `pet` FROM `people` GROUP BY 'pet owner name';    --AS : used to change the field in the result. it creates an alias
+SELECT `name`, `pet` FROM `people` UNION SELECT `anniversary`, `pet` FROM `people` WHERE `pet`='Ditto'; --UNION : it combines results (here it combines `pet` and `anniversary` into one column, only if the person's pet name is 'Ditto')
+
+INSERT INTO `people` (`name`, `pet`, `anniversary`) VALUES('Sam Rogers', 'Shredder', DATE(1970-01-01));    --INSERT INTO : `people` is the table you wanna insert into. (first parenthesis) are the fields, and inside second () are the values.
