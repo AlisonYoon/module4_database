@@ -20,3 +20,8 @@ SELECT `name` AS 'petOwnerName', `pet` FROM `people` GROUP BY 'pet owner name'; 
 SELECT `name`, `pet` FROM `people` UNION SELECT `anniversary`, `pet` FROM `people` WHERE `pet`='Ditto'; --UNION : it combines results (here it combines `pet` and `anniversary` into one column, only if the person's pet name is 'Ditto')
 
 INSERT INTO `people` (`name`, `pet`, `anniversary`) VALUES('Sam Rogers', 'Shredder', DATE(1970-01-01));    --INSERT INTO : `people` is the table you wanna insert into. (first parenthesis) are the fields, and inside second () are the values.
+
+UPDATE `people` SET `name`='Samuel Rogers', `pet`='Maxwell Binkington The Third' WHERE `id` = 9;    --UPDATE and SET multiple fields name to that value for the id=9 row.
+UPDATE `people` SET `name`='Samuel Rogers', `pet`='Maxwell Binkington The Third' WHERE `id` > 9;    --update all with that values in those fields where id is bigger than 9.
+
+UPDATE `people` SET `email` = REPLACE(`email`, '@gnail.com', '@gmail.com') WHERE `email` LIKE '%@gnail.com%';    --REPLACE(param1, param2, param3) : in param1 field's  param2 value-> change to param3 value. WHERE the `email` field's value look like that. %@gnail.com%
