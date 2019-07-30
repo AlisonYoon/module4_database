@@ -34,8 +34,6 @@ if(isset($_GET['id'])) {
 
 
 
-
-
     //$query = $db->query($sql);   //use query method on $db, we don't need to know what query() returns.
 
 //    for($x=0; $x<4; $x++) {
