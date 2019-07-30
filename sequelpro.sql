@@ -13,6 +13,10 @@ SELECT DISTINCT `id`, `name` FROM `people` WHERE `pet`='Pikachu' ORDER BY `id` D
 
 SELECT DISTINCT `id`, `name` FROM `people` WHERE `pet`='Pikachu' ORDER BY `id` DESC LIMIT 2;    --LIMIT : limit the result to just 2.
 
+Difference btwn GROUP BY and DISTINCT
+GROUP BY - you can use other functions such as COUNT() MIN() MAX()
+DISTINCT - it will just remove the duplicate
+
 SELECT `name`, `pet` FROM `people` GROUP BY `pet`;     --GROUP BY : Rolls through the table, selects unique entries and ignores duplicated entries
 SELECT `name`, `pet` FROM `people` GROUP BY `pet` HAVING `pet` = 'Pikachu';    --HAVING : filters the result of GROUP BY
 
