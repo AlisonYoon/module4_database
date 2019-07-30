@@ -20,6 +20,10 @@ SELECT `id`,`name` FROM (
 SELECT * FROM `people` WHERE `dob` > '1965-01-02'
 ) AS a
 WHERE `id` >= 2;   -- one query inside another query.
+
+INSERT INTO `colours` (`color`) VALUES (SELECT `fav_color` FROM `adults` WHERE `id` = 765)
 -- Subqueries : 1. Put in bracket    2. Treat like a table    3. Use an alias
+--dynamically generates the values to insert
+--can be useful for moving data (restructuring) merging/separating
 
 
