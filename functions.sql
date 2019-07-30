@@ -15,3 +15,11 @@ _ = 1 character   --  _o_   : tom, Bob is fine but not Grondle
 
 
 SELECT `name` FROM `people` WHERE `age` BETWEEN 25 and 48    -- it retrieves people whose ages are between 25 and 48
+
+SELECT `id`,`name` FROM (
+SELECT * FROM `people` WHERE `dob` > '1965-01-02'
+) AS a
+WHERE `id` >= 2;   -- one query inside another query.
+-- Subqueries : 1. Put in bracket    2. Treat like a table    3. Use an alias
+
+
