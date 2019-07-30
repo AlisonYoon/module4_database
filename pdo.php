@@ -15,8 +15,8 @@ if(isset($_GET['id'])) {
     $results = $sql->execute();    //   execute will then give the result what prepare filtered.
 
     //you can also do it like this, but if there are like 5 question marks, then it's difficult so see which ? is what.
-    //$sql = $db->prepare('SELECT * FROM `adults` WHERE id=?;');
-    //$sql->execute([$idToSearchFor]);
+    //$sql = $db->prepare('SELECT * FROM `adults` WHERE id=?;');    //? is like placeholder
+    //$sql->execute([$idToSearchFor]);   // you give the param inside the execute() for that ? placeholder above.
 
     //you can also do it like this:
     //$sql = $db->prepare('SELECT * FROM `adults` WHERE id=:id;');   //this makes it associative array
@@ -24,7 +24,7 @@ if(isset($_GET['id'])) {
 
     //you can also do it like this:
     //$sql = $db->prepare('SELECT * FROM `adults` WHERE id=:id;');
-    //$sql->bindParam('id', $idToSearchFor, PDO::PARAM_INT)    // you can do type hinting this way.(PDO::PARAM_INT is the hint). It will see if it's good param or not.
+    //$sql->bindParam('id', $idToSearchFor, PDO::PARAM_INT);    // you can do type hinting this way.(PDO::PARAM_INT is the hint). It will see if it's good param or not.
     //$sql->execute();
 
     //$sql->bindValue('id', 4, PDO::PARAM_INT);    //id is parameter, 4 is value. This will only give you id 4 as result no matter what the input is.
