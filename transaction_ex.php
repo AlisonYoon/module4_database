@@ -13,6 +13,10 @@ $getName->bindParam('id', $id, PDO::PARAM_INT);
 $getName->execute();
 $getNameResult= $getName->fetch();
 
+if($getNameResult === 'Boot') {
+    $db->rollBack();   // rollBack() : Stops transaction manually.
+}
+
 $changeName = $db->prepare('UPDATE `adults` SET `name`=:newName WHERE id=:id');
 $changeName->bindParam('newName', $newName, PDO::PARAM_STR);
 $changeName->bindParam('id', $id, PDO::PARAM_INT);
