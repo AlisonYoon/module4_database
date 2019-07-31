@@ -68,7 +68,9 @@ SELECT `id` FROM `adults`
 UNION
 SELECT `id` FROM `children`   -- This will give you one id column that has all adults and children id
 
+============================================
 
+ALTER IGNORE TABLE `adults` ADD UNIQUE (`column_name`);   // UNIQUE makes this column entry to be unique. it does not accept duplicate values.
 
 
 
