@@ -60,6 +60,14 @@ JOIN : selecting data from multiple tables in one query
     ON `link`.`childID` = `children`.`id`;      -- you join children table into link table.
 
  `
+ UNION --allows you to combine two SELECT statements as long as they have combineable columns
+        --Combineable =datatype, name...
+        --Select unique values only (it removes duplicates)
+        --UNION ALL allow duplicates.
+SELECT `id` FROM `adults`
+UNION
+SELECT `id` FROM `children`   -- This will give you one id column that has all adults and children id
+
 
 
 
