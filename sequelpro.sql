@@ -61,7 +61,7 @@ JOIN : selecting data from multiple tables in one query
 
  `
  UNION --allows you to combine two SELECT statements as long as they have combineable columns
-        --Combineable =datatype, name...
+        --Combineable = datatype, name...
         --Select unique values only (it removes duplicates)
         --UNION ALL allow duplicates.
 SELECT `id` FROM `adults`
