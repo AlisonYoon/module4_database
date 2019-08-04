@@ -16,7 +16,11 @@
    $childId = $favClr->fetchAll();
 
    
-   var_dump($childId);
+   //var_dump($childId);
+   foreach ($childId as $type) {
+      echo $type['type'];
+      echo '<br>';
+   }
 
 }
 
