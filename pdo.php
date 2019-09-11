@@ -12,7 +12,7 @@ if(isset($_GET['id'])) {
     //$sql = 'SELECT * FROM `adults`';
     //$sql = 'SELECT * FROM `adults` WHERE id=' . $idToSearchFor . ';';
     $sql = $db->prepare('SELECT * FROM `adults` WHERE id=' . $idToSearchFor . ';');  //   prepare will see if it's "good" database or not.
-    $results = $sql->execute();    //   execute will then give the result what prepare filtered.
+    $sql->execute();    //   execute will then give the result what prepare filtered.
 
     //you can also do it like this, but if there are like 5 question marks, then it's difficult so see which ? is what.
     //$sql = $db->prepare('SELECT * FROM `adults` WHERE id=?;');    //? is like placeholder
